@@ -15,11 +15,15 @@ body {
 }
 
 section {
-    padding: 70px 20px;
+    padding: 80px 20px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1s ease;
 }
 
-h1, h2, h3 {
-    letter-spacing: 1px;
+section.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 img {
@@ -56,7 +60,7 @@ button:hover {
     to {opacity: 1;}
 }
 
-/* Floating hearts */
+/* Hearts */
 .heart {
     position: fixed;
     bottom: -10px;
@@ -83,6 +87,18 @@ button:hover {
     background: gold;
     border-radius: 20px;
 }
+
+/* Bouquet */
+#bouquet {
+    font-size: 70px;
+    display: none;
+    animation: bloom 1s ease forwards;
+}
+
+@keyframes bloom {
+    0% {transform: scale(0);}
+    100% {transform: scale(1);}
+}
 </style>
 </head>
 
@@ -100,23 +116,10 @@ button:hover {
 </audio>
 
 <section>
-<h2>A Little Something For You 💐</h2>
-<p>
-I tried to send you real flowers…  
-but since you had to travel to be with your family,  
-please accept these instead.
-</p>
-
-<div style="font-size:60px; animation: floatUp 6s infinite;">
-💐 🌹 💐 🌹 💐
-</div>
-
-<p>
-And more than flowers —  
-I’m sending you strength, comfort, and love.  
-I hope your dad feels better soon.  
-I’m here for you, always.
-</p>
+<h2>Open Your Virtual Bouquet 💐</h2>
+<button onclick="openBouquet()">Open It</button>
+<div id="bouquet">💐🌹💐🌹💐</div>
+<p id="bouquetMessage"></p>
 </section>
 
 <section>
@@ -187,8 +190,6 @@ Across the miles and midnight skies,<br><br>
 You are the calm within my tides.<br><br>
 Not just a voice across a screen,<br>
 But the most beautiful thing I’ve ever seen.<br><br>
-Even on hard days, even when life feels heavy,<br>
-You are still my light.<br><br>
 Happy Valentine’s Day, my Princess.<br>
 I love you — endlessly.
 </p>
@@ -200,9 +201,14 @@ I love you — endlessly.
 <p>Because one day we won’t just imagine it — we’ll live it.</p>
 </section>
 
+<section>
+<h2>Final Surprise ✨</h2>
+<p id="endingMessage"></p>
+</section>
+
 <script>
 
-/* Background music */
+/* Music */
 window.onload = function() {
     const music = document.getElementById("bgMusic");
     music.volume = 0.25;
@@ -210,7 +216,16 @@ window.onload = function() {
     loadQuestion();
 };
 
-/* Floating hearts */
+/* Stars */
+for (let i = 0; i < 200; i++) {
+    let star = document.createElement("div");
+    star.classList.add("star");
+    star.style.top = Math.random() * 100 + "vh";
+    star.style.left = Math.random() * 100 + "vw";
+    document.body.appendChild(star);
+}
+
+/* Hearts */
 function createHeart() {
     const heart = document.createElement("div");
     heart.classList.add("heart");
@@ -221,13 +236,38 @@ function createHeart() {
 }
 setInterval(createHeart, 1500);
 
-/* Stars */
-for (let i = 0; i < 150; i++) {
-    let star = document.createElement("div");
-    star.classList.add("star");
-    star.style.top = Math.random() * 100 + "vh";
-    star.style.left = Math.random() * 100 + "vw";
-    document.body.appendChild(star);
+/* Fade in sections */
+window.addEventListener("scroll", function() {
+    const sections = document.querySelectorAll("section");
+    sections.forEach(sec => {
+        const pos = sec.getBoundingClientRect().top;
+        if (pos < window.innerHeight - 100) {
+            sec.classList.add("visible");
+        }
+    });
+});
+
+/* Bouquet */
+function openBouquet() {
+    document.getElementById("bouquet").style.display = "block";
+    document.getElementById("bouquetMessage").innerText =
+    "Since I couldn’t get you physical flowers… please accept these instead ❤️";
+    confetti();
+}
+
+/* Confetti */
+function confetti() {
+    for (let i = 0; i < 100; i++) {
+        let conf = document.createElement("div");
+        conf.style.position = "fixed";
+        conf.style.width = "5px";
+        conf.style.height = "5px";
+        conf.style.background = "gold";
+        conf.style.top = Math.random() * 100 + "vh";
+        conf.style.left = Math.random() * 100 + "vw";
+        document.body.appendChild(conf);
+        setTimeout(() => conf.remove(), 2000);
+    }
 }
 
 /* Voice */
@@ -269,8 +309,17 @@ function answer() {
     loadQuestion();
 }
 
+/* Ending */
+window.addEventListener("scroll", function() {
+    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+        document.getElementById("endingMessage").innerText =
+        "Loading our future together... ❤️";
+    }
+});
+
 </script>
 
 </body>
 </html>
+
 
