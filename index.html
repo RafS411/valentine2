@@ -181,8 +181,8 @@ button {
 
 <section>
 <h2>Your Cuteness 🥺</h2>
-<p>The way you laugh, react and be silly… dangerously adorable.</p>
 <img src="cute.jpg">
+<p>The way you laugh, react and be silly… dangerously adorable.</p>
 </section>
 
 <section>
@@ -300,30 +300,53 @@ function playVoice() {
 /* Quiz */
 let score = 0;
 let currentQuestion = 0;
+
 const questions = [
-"Who said I love you first?",
-"Who misses the other more?",
-"Who is cuter?",
-"Are we forever?"
+
+"Would you rather live in Paris 🇫🇷 or Tokyo 🇯🇵 together?",
+"Beach house 🏝️ or city skyline apartment 🌆?",
+"Matching outfits day 😌 or surprise date night 🎁?",
+"Late night deep talks 🌙 or early morning coffee together ☕?",
+"Road trip across Europe 🚗 or Asia adventure ✈️?",
+"Adopt a dog 🐶 or a cat 🐱 first?",
+"Netflix marathon all weekend 🎬 or spontaneous midnight drive 🌌?",
+"Would you rather I cook for you 👨🏽‍🍳 or we cook together?",
+"Matching tattoos 👀 or matching bracelets?",
+"Romantic slow dance in the kitchen 💃 or in the rain 🌧️?",
+"Would you rather wake up next to me every day or fall asleep on my chest every night?",
+"Luxury car 🏎️ or cozy couple scooter 🛵?",
+"Live near the ocean 🌊 or near the mountains 🏔️?",
+"Surprise kisses all day 😘 or long hugs that never end?",
+"Would you rather travel the world with me or build our dream home first?",
+"Couple gym sessions 💪 or couple spa days 🧖‍♀️?",
+"Private island getaway 🏝️ or snowy cabin retreat ❄️?",
+"Would you rather I plan all our dates or you surprise me?",
+"Grow old in Portugal 🇵🇹 or Taiwan 🇹🇼?",
+"Are we building a forever kind of love? ❤️"
 ];
 
 function loadQuestion() {
     if (currentQuestion < questions.length) {
-        document.getElementById("quizQuestion").innerText = questions[currentQuestion];
+        document.getElementById("quizQuestion").innerText =
+            questions[currentQuestion];
     } else {
-        document.getElementById("quizResult").innerText =
-        "Soulmate Mode Activated ❤️ You scored " + score + "/" + questions.length;
+        document.getElementById("quizQuestion").innerText = "";
+        document.getElementById("quizResult").innerHTML =
+            "✨ FUTURE LOCKED IN ✨<br><br>" +
+            "You scored " + score + "/20 ❤️<br><br>" +
+            "Plot twist: We were always going to choose each other.";
     }
 }
 
 function answer() {
     score++;
     currentQuestion++;
-    document.getElementById("loveBar").style.width = (score * 25) + "%";
+    document.getElementById("loveBar").style.width = (score * 5) + "%";
     loadQuestion();
 }
 
 loadQuestion();
+
 
 /* FINAL SURPRISE */
 function revealFinal() {
