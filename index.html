@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
 <title>For My Princess ❤️</title>
@@ -7,247 +7,190 @@
 <style>
 body {
     margin: 0;
-    font-family: 'Georgia', serif;
-    background: radial-gradient(circle at bottom, #0b0f2b 0%, #050816 70%);
-    color: #f5d78e;
+    font-family: Georgia, serif;
+    background: #0b0f2b;
+    color: gold;
     text-align: center;
-    overflow-x: hidden;
-}
-
-/* Intro Screen */
-#intro {
-    position: fixed;
-    width: 100%;
-    height: 100vh;
-    background: black;
-    color: #f5d78e;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    z-index: 10;
-}
-
-#intro button {
-    padding: 15px 35px;
-    background: #d4af37;
-    border: none;
-    font-size: 18px;
-    border-radius: 30px;
-    cursor: pointer;
-    margin-top: 20px;
-}
-
-/* Stars */
-.star {
-    position: fixed;
-    width: 2px;
-    height: 2px;
-    background: white;
-    animation: twinkle 3s infinite alternate;
-}
-
-@keyframes twinkle {
-    from {opacity: 0.3;}
-    to {opacity: 1;}
 }
 
 section {
-    padding: 80px 20px;
+    padding: 60px 20px;
 }
 
-h1, h2 {
-    letter-spacing: 2px;
+img {
+    width: 300px;
+    margin: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 25px rgba(255,215,0,0.4);
 }
 
 button {
-    padding: 12px 25px;
-    background: #d4af37;
+    padding: 12px 20px;
+    background: gold;
     border: none;
-    border-radius: 25px;
+    border-radius: 20px;
     cursor: pointer;
-    margin-top: 10px;
+    font-weight: bold;
 }
 
 button:hover {
     background: #f5d78e;
 }
 
-img {
-    width: 280px;
-    border-radius: 15px;
-    margin: 15px;
-    box-shadow: 0 0 25px rgba(212,175,55,0.4);
+#loveBarContainer {
+    width: 60%;
+    margin: 20px auto;
+    background: #333;
+    border-radius: 20px;
 }
 
-.fade-in {
-    animation: fade 2s ease-in;
-}
-
-@keyframes fade {
-    from {opacity: 0;}
-    to {opacity: 1;}
-}
-
-/* Floating Hearts */
-.heart {
-    position: fixed;
-    bottom: -10px;
-    font-size: 18px;
-    animation: floatUp 10s linear infinite;
-    color: rgba(255,215,0,0.5);
-}
-
-@keyframes floatUp {
-    0% {transform: translateY(0); opacity: 1;}
-    100% {transform: translateY(-100vh); opacity: 0;}
-}
-
-.hidden {
-    display: none;
+#loveBar {
+    height: 20px;
+    width: 0%;
+    background: gold;
+    border-radius: 20px;
 }
 </style>
 </head>
 
 <body>
 
-<div id="intro">
-    <h1>For My Princess ❤️</h1>
-    <p>Some things are worth waiting for...</p>
-    <button onclick="startExperience()">Enter</button>
-</div>
+<h1>Happy Valentine’s Day ❤️</h1>
+<p>Across oceans and time zones… you are still my home.</p>
 
 <audio id="bgMusic" loop>
     <source src="music.mp3" type="audio/mpeg">
 </audio>
 
-<div id="mainContent" class="hidden">
+<audio id="voiceMessage">
+    <source src="voice.mp3" type="audio/mpeg">
+</audio>
 
-<section class="fade-in">
-    <h1>Happy Valentine’s Day</h1>
-    <p>Across oceans and time zones… you are still my home.</p>
+<section>
+<h2>Our Memories 📸</h2>
+<img src="photo1.jpg">
+<img src="photo2.jpg">
+<img src="photo3.jpg">
 </section>
 
 <section>
-    <h2>Our Story 📸</h2>
-    <img src="photo1.jpg">
-    <img src="photo2.jpg">
-    <img src="photo3.jpg">
-    <p>Every memory with you is golden.</p>
+<h2>Listen First 🎙️</h2>
+<button onclick="playVoice()">Play My Message</button>
 </section>
 
 <section>
-    <h2>Couple Quiz 💘</h2>
-    <p>Who loves the other more?</p>
-    <button onclick="quiz()">You</button>
-    <button onclick="quiz()">Me</button>
-    <p id="quizResult"></p>
+<h2>Your Smile ✨</h2>
+<img src="smile.jpg">
+<p>Your smile is my favorite notification in the world.</p>
 </section>
 
 <section>
-    <h2>Game Time 🎮</h2>
-    <p>Let’s play together.</p>
-    <a href="https://kahoot.it/" target="_blank">
-        <button>Start Kahoot</button>
-    </a>
+<h2>Your Cuteness 🥺</h2>
+<img src="cute.jpg">
+<p>The way you laugh and react… dangerously adorable.</p>
 </section>
 
 <section>
-    <h2>Tonight’s Movie 🎬</h2>
-    <h3>Before Sunrise (1995)</h3>
-    <p>Because one day we won’t just talk about meeting in a city… we’ll actually be there.</p>
+<h2>Your Style 💎</h2>
+<img src="style.jpg">
+<p>You don’t walk into rooms — you own them.</p>
 </section>
 
 <section>
-    <h2>A Poem For You 💌</h2>
-    <p>
-    Across the miles and midnight skies,<br><br>
-    You are the calm within my tides.<br><br>
-    Not just a voice across a screen,<br>
-    But the most beautiful thing I’ve ever seen.<br><br>
-    And when the oceans lose their space,<br>
-    It’s your hand I want to embrace.<br><br>
-    Happy Valentine’s Day, my Princess.<br>
-    I love you — endlessly.
-    </p>
+<h2>Your Beauty ❤️</h2>
+<img src="beauty.jpg">
+<p>You are art. Effortlessly stunning.</p>
 </section>
 
+<section>
+<h2>Your Body 🔥</h2>
+<img src="body.jpg">
+<p>Elegant. Confident. Powerful.</p>
+</section>
+
+<section>
+<h2>Ultimate Couple Quiz 💘</h2>
+<p id="quizQuestion"></p>
+<button onclick="answer()">Perfect Answer</button>
+
+<div id="loveBarContainer">
+    <div id="loveBar"></div>
 </div>
+
+<p id="quizResult"></p>
+</section>
+
+<section>
+<h2>Game Time 🎮</h2>
+<a href="https://kahoot.it/" target="_blank">
+<button>Start Kahoot</button>
+</a>
+</section>
+
+<section>
+<h2>A Poem For You 💌</h2>
+<p>
+Across the miles and midnight skies,<br><br>
+You are the calm within my tides.<br><br>
+Not just a voice across a screen,<br>
+But the most beautiful thing I’ve ever seen.<br><br>
+Happy Valentine’s Day, my Princess.<br>
+I love you — endlessly.
+</p>
+</section>
+
+<section>
+<h2>Tonight’s Movie 🎬</h2>
+<h3>Before Sunrise (1995)</h3>
+<p>Because one day we won’t just imagine it — we’ll live it.</p>
+</section>
 
 <script>
 
-/* Start Experience */
-function startExperience() {
-    document.getElementById("intro").style.display = "none";
-    document.getElementById("mainContent").classList.remove("hidden");
-    document.getElementById("bgMusic").play();
+window.onload = function() {
+    const music = document.getElementById("bgMusic");
+    music.volume = 0.25;
+    music.play();
+    loadQuestion();
+};
+
+function playVoice() {
+    document.getElementById("voiceMessage").play();
 }
 
-/* Stars */
-for (let i = 0; i < 150; i++) {
-    let star = document.createElement("div");
-    star.classList.add("star");
-    star.style.top = Math.random() * 100 + "vh";
-    star.style.left = Math.random() * 100 + "vw";
-    document.body.appendChild(star);
-}
+/* Quiz System */
+let score = 0;
+let currentQuestion = 0;
 
-/* Floating Hearts */
-function createHeart() {
-    const heart = document.createElement("div");
-    heart.classList.add("heart");
-    heart.innerHTML = "❤️";
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.animationDuration = (Math.random() * 6 + 6) + "s";
-    document.body.appendChild(heart);
-    setTimeout(() => heart.remove(), 12000);
-}
-setInterval(createHeart, 1200);
+const questions = [
+    "Who said I love you first?",
+    "Who misses the other more?",
+    "Who is more dramatic?",
+    "Who gives better hugs?",
+    "Where should we travel first?",
+    "Who is the lucky one?",
+    "Who is cuter?",
+    "Who fell harder?",
+    "Are we unstoppable?",
+    "Are we forever?"
+];
 
-/* Quiz */
-function quiz() {
-    document.getElementById("quizResult").innerHTML =
-    "Correct answer: We both love each other endlessly ❤️";
-}
-
-/* Hidden Double Click Surprise */
-document.addEventListener("dblclick", function() {
-    alert("No matter the distance… I choose you. Every time. ❤️");
-});
-
-/* Scroll Hidden Message */
-window.addEventListener("scroll", function() {
-    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-        alert("You found the hidden ending… Our best chapter hasn’t even started yet ❤️");
+function loadQuestion() {
+    if (currentQuestion < questions.length) {
+        document.getElementById("quizQuestion").innerText = questions[currentQuestion];
+    } else {
+        document.getElementById("quizQuestion").innerText = "";
+        document.getElementById("quizResult").innerText =
+        "Soulmate Mode Activated ❤️ You scored " + score + "/10";
     }
-});
+}
 
-/* Angola to Taiwan Love Line */
-let line = document.createElement("div");
-line.style.position = "fixed";
-line.style.top = "50%";
-line.style.left = "10%";
-line.style.width = "80%";
-line.style.height = "2px";
-line.style.background = "linear-gradient(to right, gold, transparent)";
-line.style.opacity = "0.2";
-document.body.appendChild(line);
-
-/* Glowing Cursor */
-document.addEventListener("mousemove", function(e) {
-    let glow = document.createElement("div");
-    glow.style.position = "fixed";
-    glow.style.width = "8px";
-    glow.style.height = "8px";
-    glow.style.borderRadius = "50%";
-    glow.style.background = "gold";
-    glow.style.left = e.clientX + "px";
-    glow.style.top = e.clientY + "px";
-    glow.style.opacity = "0.6";
-    glow.style.pointerEvents = "none";
-    document.body.appendChild(glow);
-    setTimeout(() => glow.remove(), 300);
-});
+function answer() {
+    score++;
+    currentQuestion++;
+    document.getElementById("loveBar").style.width = (score * 10) + "%";
+    loadQuestion();
+}
 
 </script>
 
